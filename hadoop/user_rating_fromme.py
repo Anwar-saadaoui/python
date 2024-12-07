@@ -16,8 +16,8 @@ class CountRating(MRJob):
         (userID, movieID, rating, timestamp) = line.split("\t")
         yield movieID, int(rating)
     
-    def reducer_most_rating(self,key, value):
-        yield key , sum(value)
+    def reducer_most_rating(self,key, values):
+        yield key , sum(values)
     
 
 if __name__ == '__main__':
